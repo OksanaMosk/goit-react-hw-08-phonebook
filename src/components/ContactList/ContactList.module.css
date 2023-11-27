@@ -1,0 +1,20 @@
+.contactContainer {
+  padding-top: 30px;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: flex-start;
+  color: #a0ddf0;
+  font-size: 20px;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+}

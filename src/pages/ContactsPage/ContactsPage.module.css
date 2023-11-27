@@ -1,0 +1,89 @@
+.noContacts {
+  margin: 0, auto;
+  padding-top: 20px;
+  text-align: center;
+  color: rgb(102, 135, 173);
+  font-size: 36px;
+}
+.noContacts:hover,
+.noContacts:focus {
+  color: #a0ddf0;
+}
+
+.noSpan {
+  position: relative;
+  letter-spacing: 15px;
+  color: #0e3742;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+  line-height: 0.7em;
+  outline: none;
+  animation: animate 4s linear infinite;
+}
+@keyframes animate {
+  0%,
+  18%,
+  20.1%,
+  25%,
+  35.1%,
+  45%,
+  50.1%,
+  60%,
+  65.1%,
+  70%,
+  75.1%,
+  80%,
+  90.1%,
+  92%,
+  99% {
+    color: #0e3742;
+    text-shadow: none;
+  }
+  18.1%,
+  20%,
+  25.1%,
+  35%,
+  40.1%,
+  50%,
+  60.1%,
+  65%,
+  70.1%,
+  75%,
+  80.1%,
+  90%,
+  92.1%,
+  100% {
+    color: #fff;
+    text-shadow: 0 0 10px #03bcf4, 0 0 20px #03bcf4, 0 0 40px #03bcf4,
+      0 0 80px #03bcf4, 0 0 160px #03bcf4;
+  }
+}
+.goBack {
+  display: inline-flex;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 0 15px 15px 0;
+  width: 70px;
+  height: 20px;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  justify-content: center;
+  align-items: center;
+  color: #a0ddf0;
+  font-size: 14px;
+  transition: all 0.003s;
+}
+.goback:active,
+.goback:hover,
+.goback:focus {
+  background-color: #0a2d39;
+}
+.loader {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 0, auto;
+}
