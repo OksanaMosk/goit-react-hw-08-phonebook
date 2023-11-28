@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { addContacts } from 'redux/contacts/contacts.reducer';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/contacts/contacts.selector';
+// import { selectContacts } from 'redux/contacts/contacts.selector';
 import Notiflix from 'notiflix';
 import css from './ContactForm.module.css';
 import book from 'images/icons8-phonebook-60.png';
@@ -11,13 +11,13 @@ import book2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
 
 export function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const contacts = useSelector(selectContacts);
+  const [number, setNumber] = useState('');
+  const contacts = useSelector(state => state.contactsStore.contacts);
   const dispatch = useDispatch();
   const mpFailure = 'https://audio.code.org/losepoint1.mp3';
-
   const mpSuccess = 'https://audio.code.org/goal2.mp3';
-  const handleAddContact = (name, phone) => {
+
+  const handleAddContact = (name, number) => {
     if (
       contacts.find(
         contact =>
@@ -37,12 +37,12 @@ export function ContactForm() {
     if (
       contacts.find(
         contact =>
-          contact.phone.toString().toLowerCase() ===
-          phone.toString().toLowerCase()
+          contact.number.toString().toLowerCase() ===
+          number.toString().toLowerCase()
       )
     ) {
       new Audio(mpFailure).play();
-      Notiflix.Notify.failure(`${phone}  is already in contacts`, {
+      Notiflix.Notify.failure(`${number}  is already in contacts`, {
         timeout: 1000,
         width: '300px',
         borderRadius: '20px',
@@ -53,7 +53,7 @@ export function ContactForm() {
     const finalContacts = {
       id: nanoid(),
       name,
-      phone,
+      number,
     };
     new Audio(mpSuccess).play();
     Notiflix.Notify.success(`${name} is added to contacts`, {
@@ -64,17 +64,18 @@ export function ContactForm() {
     });
 
     dispatch(addContacts(finalContacts));
+    console.log(contacts);
     reset();
   };
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    handleAddContact(name, phone);
+    handleAddContact(name, number);
   };
 
   const handleInputChange = event => {
@@ -85,8 +86,8 @@ export function ContactForm() {
         setName(value);
         break;
       }
-      case 'phone': {
-        setPhone(value);
+      case 'number': {
+        setNumber(value);
         break;
       }
       default:
@@ -119,9 +120,9 @@ export function ContactForm() {
           <p className={css.inputName}>Number</p>
           <input
             type="tel"
-            name="phone"
+            name="number"
             id={numberInputId}
-            value={phone}
+            value={number}
             onChange={handleInputChange}
             className={css.formInput}
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"

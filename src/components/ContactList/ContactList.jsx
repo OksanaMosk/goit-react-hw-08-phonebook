@@ -1,23 +1,14 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { ContactElement } from '../ContactElement/ContactElement';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContacts, fetchContacts } from 'redux/contacts/contacts.reducer';
-import { selectContacts } from 'redux/contacts/contacts.selector';
-import { selectFilterTerm } from 'redux/filter/filter.selector';
+import { deleteContacts } from 'redux/contacts/contacts.reducer';
 
 import css from './ContactList.module.css';
 
 export const ContactList = () => {
-  const id = useParams();
-  const contacts = useSelector(selectContacts);
-  const filterTerm = useSelector(selectFilterTerm);
+  const contacts = useSelector(state => state.contactsStore.contacts);
+  const filterTerm = useSelector(state => state.filterStore.filterTerm);
   const dispatch = useDispatch();
   const mpDelete = 'https://audio.code.org/goal2.mp3';
-
-  useEffect(() => {
-    dispatch(fetchContacts(id));
-  }, [id, dispatch]);
 
   const removeContact = contactId => {
     dispatch(deleteContacts(contactId));
@@ -25,11 +16,9 @@ export const ContactList = () => {
   };
 
   const visibleContacts = () => {
+    const normalizedFilter = filterTerm.toLowerCase();
     return contacts.filter(contact =>
-      contact.name
-        .toString()
-        .toLowerCase()
-        .includes(filterTerm.toString().toLowerCase())
+      contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
 
@@ -40,11 +29,11 @@ export const ContactList = () => {
   return (
     <div className={css.contactContainer}>
       <ul className={css.contactList}>
-        {sorted.map(({ name, phone, id }) => (
+        {sorted.map(({ name, number, id }) => (
           <ContactElement
             key={id}
             name={name}
-            phone={phone}
+            number={number}
             id={id}
             onRemoveContact={removeContact}
           />

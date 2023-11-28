@@ -32,14 +32,14 @@ header:hover {
   display: block;
   text-align: center;
   font-size: 40px;
-  color: #9a8f89;
+  color: #6e6662;
   text-transform: uppercase;
   width: 100%;
   line-height: 0.7em;
 }
 .mainTitle:hover,
 .mainTitle :focus {
-  color: #b1b9cc;
+  color: #7584a3;
 }
 
 .title {

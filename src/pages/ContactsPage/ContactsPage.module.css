@@ -1,3 +1,12 @@
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
 .noContacts {
   margin: 0, auto;
   padding-top: 20px;
