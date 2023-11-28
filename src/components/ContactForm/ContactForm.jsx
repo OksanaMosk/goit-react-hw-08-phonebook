@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contacts.selector';
 import Notiflix from 'notiflix';
 import css from './ContactForm.module.css';
+import book from 'images/icons8-phonebook-60.png';
+import book2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
 
 export function ContactForm() {
   const [name, setName] = useState('');
@@ -130,8 +132,21 @@ export function ContactForm() {
           ></input>
         </label>
         <button type="submit" className={css.submitButton}>
-          Add contact
+          <img
+            src={book2}
+            alt="{book2}"
+            className={css.book_2}
+            width={100}
+            height={100}
+          ></img>
         </button>
+        <img
+          src={book}
+          alt="{book}"
+          className={css.book}
+          width={100}
+          height={100}
+        ></img>
       </form>
     </div>
   );

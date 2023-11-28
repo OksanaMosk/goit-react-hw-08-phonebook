@@ -3,6 +3,9 @@
   justify-content: center;
 }
 .goBack {
+  position: absolute;
+  top: 30px;
+  left: 20px;
   display: inline-flex;
   text-decoration: none;
   border: 1px solid white;
@@ -13,7 +16,14 @@
   margin-block-start: 0;
   justify-content: center;
   align-items: center;
-  color: #a0ddf0;
+  color: #b1b9cc;
+  background-color: #af9e8e;
   font-size: 14px;
   transition: all 0.003s;
+}
+.goback:active,
+.goback:hover,
+.goback:focus {
+  background-color: #b1b9cc;
+  color: #af9e8e;
 }

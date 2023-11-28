@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <header>
-        <h1 className={css.mainTitle}>Phonebook</h1>;
+        <h1 className={css.mainTitle}>Phonebook</h1>
         <div className={css.menu}>
           <NavLink state={{ from: location }} to="/"></NavLink>
           <NavLink state={{ from: location }} className={css.title} to="/add">

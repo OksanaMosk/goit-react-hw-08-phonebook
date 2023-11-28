@@ -1,6 +1,26 @@
-.homePage {
+.home {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 30px;
+}
+.homePage {
+  border: 1.5px solid #e6eaed;
+  width: 34vw;
+  height: 250px;
+  display: flex;
+  border-radius: 30px;
+  background-color: #af9e8e;
+  cursor: pointer;
+  box-shadow: 10px 10px 7px 0px rgba(177, 185, 204, 0.12),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.14),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.12);
+  object-fit: cover;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   justify-content: center;
   align-items: center;
-  padding-top: 40px;
+}
+.homePage:focus,
+.homePage:hover {
+  transform: scale(1.03);
 }
