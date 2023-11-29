@@ -60,7 +60,9 @@ export function ContactForm() {
     });
 
     dispatch(addContacts(finalContacts));
+    console.log('сontacts:', contacts);
     console.log(finalContacts);
+
     reset();
   };
 
