@@ -30,6 +30,7 @@ header:hover {
 }
 
 .mainTitle {
+  padding-top: 20px;
   position: relative;
   display: block;
   text-align: center;
@@ -73,8 +74,8 @@ header:hover {
 }
 .authorization {
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 10px;
+  right: 10px;
 }
 .titleAuthorization {
   margin-left: 20px;

@@ -1,67 +1,71 @@
+import { useDispatch } from 'react-redux';
 import css from './RegisterPage.module.css';
 import book2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
+import { registerThunk } from 'redux/auth/auth.reducer';
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const onSubmit = e => {
+    e.preventDefault();
+
+    const name = e.currentTarget.elements.userName.value;
+
+    const email = e.currentTarget.elements.userEmail.value;
+    const password = e.currentTarget.elements.userPassword.value;
+    // console.log('name: ', name);
+    // console.log('email: ', email);
+    // console.log('password: ', password);
+    const formData = {
+      name,
+      email,
+      password,
+    };
+    dispatch(registerThunk(formData));
+  };
   return (
     <div className={css.register}>
-      <div className={css.contactForm}>
-        <form className={css.form}>
-          <label>
-            <p className={css.inputName}>Name</p>
-            <input
-              type="text"
-              name="name"
-              id
-              value
-              onChange
-              className={css.formInput}
-              placeholder="Name"
-              autoComplete="on"
-              autoFocus
-              required
-            ></input>
-          </label>
-          <label>
-            <p className={css.inputName}>Email</p>
-            <input
-              type="email"
-              name="email"
-              id
-              value
-              onChange
-              className={css.formInput}
-              autoComplete="on"
-              autoFocus
-              required
-            ></input>
-          </label>
-          <label>
-            <p className={css.inputName}>Password</p>
-            <input
-              type="text"
-              name="name"
-              id
-              value
-              onChange
-              className={css.formInput}
-              placeholder="Name"
-              autoComplete="on"
-              autoFocus
-              required
-            ></input>
-          </label>
-          <button type="submit" className={css.submitButton}>
-            <img
-              src={book2}
-              alt="{book2}"
-              className={css.book_2}
-              width={100}
-              height={100}
-            ></img>
-          </button>
-        </form>
-      </div>
-      );
+      <form className={css.form} onSubmit={onSubmit}>
+        <label>
+          <p className={css.inputName}>Name</p>
+          <input
+            type="text"
+            name="userName"
+            className={css.formInput}
+            placeholder="Name"
+            required
+          ></input>
+        </label>
+        <label>
+          <p className={css.inputName}>Email</p>
+          <input
+            type="email"
+            name="userEmail"
+            placeholder="Email"
+            className={css.formInput}
+            required
+          ></input>
+        </label>
+        <label>
+          <p className={css.inputName}>Password</p>
+          <input
+            type="password"
+            name="userPassword"
+            className={css.formInput}
+            placeholder="Password"
+            required
+            minLength={7}
+          ></input>
+        </label>
+        <button type="submit" className={css.submitButton}>
+          <img
+            src={book2}
+            alt="{book2}"
+            className={css.book_2}
+            width={100}
+            height={100}
+          ></img>
+        </button>
+      </form>
     </div>
   );
 };

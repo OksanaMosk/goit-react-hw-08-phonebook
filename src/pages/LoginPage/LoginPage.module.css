@@ -1,0 +1,101 @@
+.login {
+  width: 46vw;
+  height: 250px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #af9e8e;
+  cursor: pointer;
+  box-shadow: 10px 10px 7px 0px rgba(177, 185, 204, 0.12),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.14),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.12);
+
+  border: solid #777;
+  border-width: 2px 2px 2px 0;
+  color: #fff;
+  border: 1.5px solid #e6eaed;
+  border-radius: 20px;
+  margin: -50px 10vw 0 10vw;
+  position: relative;
+  text-align: center;
+  -moz-transition: margin 2s;
+  -o-transition: margin 2s;
+  -webkit-transition: margin 2s;
+  transition: margin 2s;
+}
+
+.login:focus,
+.login:hover {
+  margin-top: 20px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 25px;
+}
+.contactForm:focus,
+.contactForm:hover {
+  transform: scale(1.03);
+}
+.inputName {
+  color: #6e6662;
+  font-weight: 500;
+  margin-block-start: 0px;
+  margin-inline-end: 0px;
+  font-size: 20px;
+}
+
+.inputName:hover,
+.inputName:focus {
+  color: #b1b9cc;
+}
+.formInput {
+  background-color: #cec5bc;
+  color: #9a8f89;
+  font-size: 20px;
+  width: 170px;
+  height: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+.formInput:hover,
+.formInput:focus {
+  background-color: #e6eaed;
+  border: none;
+  color: #9a8f89;
+}
+
+.formInput::placeholder {
+  padding-left: 10px;
+  color: #9a8f89;
+  font-size: 20px;
+  border: none;
+}
+
+.submitButton:hover,
+.submitButton:focus {
+  background-color: #9a8f89;
+  color: #e9f3f5;
+}
+.submitButton {
+  position: absolute;
+  bottom: -70px;
+  left: 15.5vw;
+  display: flex;
+  font-size: 20px;
+  background-color: #cec5bc;
+  width: 90px;
+  height: 110px;
+  border: 1px solid #6e6662;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-transform: inherit;
+}
+
+/* https://color.romanuke.com/tsvetovaya-palitra-27/ */

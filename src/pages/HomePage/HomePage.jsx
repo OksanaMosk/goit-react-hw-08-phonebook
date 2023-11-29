@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <div className={css.home}>
       <NavLink className={css.homePage1} state={{ from: location }} to="/add">
-        <img src={photo2} alt="{photo}" width={170} height={170}></img>
+        <img src={photo2} alt="{photo}" width={140} height={170}></img>
       </NavLink>
       <NavLink
         className={css.homePage2}
