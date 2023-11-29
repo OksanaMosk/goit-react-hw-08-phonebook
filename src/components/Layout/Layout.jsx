@@ -22,6 +22,22 @@ const Layout = ({ children }) => {
             My contacts
           </NavLink>
         </div>
+        <div className={css.authorization}>
+          <NavLink
+            state={{ from: location }}
+            className={css.titleAuthorization}
+            to="/register"
+          >
+            Register
+          </NavLink>
+          <NavLink
+            state={{ from: location }}
+            className={css.titleAuthorization}
+            to="/login"
+          >
+            Login
+          </NavLink>
+        </div>
       </header>
       <main>{children}</main>
     </div>

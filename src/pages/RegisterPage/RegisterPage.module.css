@@ -1,0 +1,119 @@
+.register {
+  width: 34vw;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #af9e8e;
+  cursor: pointer;
+  box-shadow: 10px 10px 7px 0px rgba(177, 185, 204, 0.12),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.14),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.12);
+
+  border: solid #777;
+  border-width: 2px 2px 2px 0;
+  color: #fff;
+  border: 1.5px solid #e6eaed;
+  border-radius: 20px;
+  line-height: 48px;
+  margin: -50px 18vw 0 18vw;
+  position: relative;
+  text-align: center;
+  -moz-transition: margin 2s;
+  -o-transition: margin 2s;
+  -webkit-transition: margin 2s;
+  transition: margin 2s;
+}
+
+.register:focus,
+.register:hover {
+  margin-top: 20px;
+}
+
+.contactForm {
+  border: 1.5px solid #e6eaed;
+  position: relative;
+  width: 70vw;
+  height: 300px;
+  display: flex;
+  border-radius: 30px;
+  background-color: #af9e8e;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 10px 10px 7px 0px rgba(177, 185, 204, 0.12),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.14),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.12);
+  object-fit: cover;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+}
+.contactForm:focus,
+.contactForm:hover {
+  transform: scale(1.03);
+}
+.inputName {
+  color: #e6eaed;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.inputName:hover,
+.inputName:focus {
+  color: #b1b9cc;
+}
+.formInput {
+  margin-right: 40px;
+  background-color: #cec5bc;
+  color: #9a8f89;
+  font-size: 20px;
+  width: 230px;
+  height: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+.formInput:hover,
+.formInput:focus {
+  background-color: #e6eaed;
+  border: none;
+  color: #9a8f89;
+}
+
+.formInput::placeholder {
+  padding-left: 10px;
+  color: #9a8f89;
+  font-size: 20px;
+  border: none;
+}
+
+.submitButton:hover,
+.submitButton:focus {
+  background-color: #9a8f89;
+  color: #e9f3f5;
+}
+.submitButton {
+  position: absolute;
+  bottom: -70px;
+  left: 15.5vw;
+  display: flex;
+  font-size: 20px;
+  background-color: #cec5bc;
+  width: 90px;
+  height: 110px;
+  border: 1px solid #cec5bc;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-transform: inherit;
+  border: none;
+}
+
+/* https://color.romanuke.com/tsvetovaya-palitra-27/ */

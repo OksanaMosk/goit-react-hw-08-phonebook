@@ -1,5 +1,6 @@
 header {
   background-color: #cec5bc;
+  justify-content: space-between;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -29,6 +30,7 @@ header:hover {
 }
 
 .mainTitle {
+  position: relative;
   display: block;
   text-align: center;
   font-size: 40px;
@@ -66,6 +68,38 @@ header:hover {
 .title:active,
 .title:hover,
 .title:focus {
+  background-color: #b1b9cc;
+  color: #9a8f89;
+}
+.authorization {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+.titleAuthorization {
+  margin-left: 20px;
+  background-color: #af9e8e;
+  display: inline-flex;
+  text-decoration: none;
+  border: 1.5px solid #e6eaed;
+  border-radius: 15px;
+  width: 80px;
+  height: 22px;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  justify-content: center;
+  align-items: center;
+  color: #e6eaed;
+  font-size: 30px;
+  transition: all 0.25s;
+  transition: all 0.25s allow-discrete;
+  font: inherit;
+  cursor: pointer;
+}
+
+.titleAuthorization:active,
+.titleAuthorization:hover,
+.titleAuthorization:focus {
   background-color: #b1b9cc;
   color: #9a8f89;
 }
