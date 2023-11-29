@@ -1,13 +1,12 @@
 import React from 'react';
-import { filterTerm } from 'redux/filter/filter.reducer';
+import { filters } from 'redux/filter/filter.reducer';
 import { useDispatch } from 'react-redux';
 import css from './Filter.module.css';
 
 export default function Filter({ value }) {
   const dispatch = useDispatch();
-
   const changeFilter = event => {
-    dispatch(filterTerm(event.target.value));
+    dispatch(filters(event.target.value));
   };
 
   return (

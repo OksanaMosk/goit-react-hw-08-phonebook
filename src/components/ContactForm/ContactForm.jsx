@@ -35,11 +35,7 @@ export function ContactForm() {
       return;
     }
     if (
-      contacts.find(
-        contact =>
-          contact.number.toString().toLowerCase() ===
-          number.toString().toLowerCase()
-      )
+      contacts.find(contact => contact.number.toString() === number.toString())
     ) {
       new Audio(mpFailure).play();
       Notiflix.Notify.failure(`${number}  is already in contacts`, {
@@ -64,7 +60,7 @@ export function ContactForm() {
     });
 
     dispatch(addContacts(finalContacts));
-    console.log(contacts);
+    console.log(finalContacts);
     reset();
   };
 

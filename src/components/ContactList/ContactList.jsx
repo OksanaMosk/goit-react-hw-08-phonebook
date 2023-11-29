@@ -6,7 +6,7 @@ import css from './ContactList.module.css';
 
 export const ContactList = () => {
   const contacts = useSelector(state => state.contactsStore.contacts);
-  const filterTerm = useSelector(state => state.filterStore.filterTerm);
+  const filter = useSelector(state => state.filterStore.filter);
   const dispatch = useDispatch();
   const mpDelete = 'https://audio.code.org/goal2.mp3';
 
@@ -16,9 +16,9 @@ export const ContactList = () => {
   };
 
   const visibleContacts = () => {
-    const normalizedFilter = filterTerm.toLowerCase();
+    const normalizedFilter = filter.toLowerCase();
     return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
+      contact.name.toString().toLowerCase().includes(normalizedFilter)
     );
   };
 
@@ -26,6 +26,7 @@ export const ContactList = () => {
   const sorted = [...visContacts].sort((a, b) =>
     a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
   );
+
   return (
     <div className={css.contactContainer}>
       <ul className={css.contactList}>
