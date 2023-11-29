@@ -28,18 +28,20 @@ export const ContactList = () => {
   );
 
   return (
-    <div className={css.contactContainer}>
-      <ul className={css.contactList}>
-        {sorted.map(({ name, number, id }) => (
-          <ContactElement
-            key={id}
-            name={name}
-            number={number}
-            id={id}
-            onRemoveContact={removeContact}
-          />
-        ))}
-      </ul>
-    </div>
+    contacts !== null && (
+      <div className={css.contactContainer}>
+        <ul className={css.contactList}>
+          {sorted.map(({ name, number, id }) => (
+            <ContactElement
+              key={id}
+              name={name}
+              number={number}
+              id={id}
+              onRemoveContact={removeContact}
+            />
+          ))}
+        </ul>
+      </div>
+    )
   );
 };
