@@ -6,18 +6,18 @@ import { useParams } from 'react-router-dom';
 import css from './ContactList.module.css';
 import {
   selectContacts,
-  selectIsLoading,
-  selectError,
+  // selectIsLoading,
+  // selectError,
 } from 'redux/contacts/contacts.selector';
-import { selectFilterTerm } from 'redux/filter/filter.selector';
+// import { selectFilterTerm } from 'redux/filter/filter.selector';
 import { useEffect } from 'react';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const id = useParams();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-  const filter = useSelector(selectFilterTerm);
+  // const isLoading = useSelector(selectIsLoading);
+  // const error = useSelector(selectError);
+  // const filter = useSelector(selectFilterTerm);
 
   const dispatch = useDispatch();
   const mpDelete = 'https://audio.code.org/goal2.mp3';
@@ -32,17 +32,17 @@ export const ContactList = () => {
     new Audio(mpDelete).play();
   };
 
-  const visibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toString().toLowerCase().includes(normalizedFilter)
-    );
-  };
+  // const visibleContacts = () => {
+  //   const normalizedFilter = filter.toLowerCase();
+  //   return contacts.filter(contact =>
+  //     contact.name.toString().toLowerCase().includes(normalizedFilter)
+  //   );
+  // };
 
-  const visContacts = visibleContacts();
-  const sorted = [...visContacts].sort((a, b) =>
-    a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
-  );
+  // const visContacts = visibleContacts();
+  // const sorted = [...visContacts].sort((a, b) =>
+  //   a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+  // );
 
   return (
     contacts !== null && (
