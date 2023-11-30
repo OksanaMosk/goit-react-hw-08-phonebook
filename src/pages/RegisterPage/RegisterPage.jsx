@@ -8,7 +8,7 @@ import { registerThunk } from 'redux/auth/auth.reducer';
 
 const Register = () => {
   const location = useLocation();
-  const backLinkRef = useRef(location.state?.from ?? '/');
+  const backLinkRef = useRef('/');
   const dispatch = useDispatch();
   const onSubmit = e => {
     e.preventDefault();

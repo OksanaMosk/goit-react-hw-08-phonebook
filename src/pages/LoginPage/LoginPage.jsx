@@ -13,7 +13,7 @@ import css from './LoginPage.module.css';
 const Login = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const backLinkRef = useRef(location.state?.from ?? '/');
+  const backLinkRef = useRef('/');
 
   const onSubmit = e => {
     e.preventDefault();

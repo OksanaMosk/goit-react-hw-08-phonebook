@@ -35,15 +35,15 @@ const ContactsPage = () => {
       {isLoading && <Loader className={css.loader} />}
 
       {contacts.length !== 0 ? (
-        <Filter />
+        <>
+          <Filter />
+          <ContactList />
+        </>
       ) : (
         <p className={css.noContacts}>
-          <span className={css.noSpan}>&#128064;</span> Add your first contact!
-          Your phonebook is empty.
-          <span className={css.noSpan}>&#128064;</span>
+          Your phonebook is empty. Add your first contact!
         </p>
       )}
-      <ContactList />
     </div>
   );
 };
