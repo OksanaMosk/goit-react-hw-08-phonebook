@@ -1,1 +1,1 @@
-// export const selectFilterTerm = state => state.filterStore.filterTerm;
+export const selectFilterTerm = state => state.filterStore.filterTerm;
