@@ -9,7 +9,7 @@ import {
   // selectIsLoading,
   // selectError,
 } from 'redux/contacts/contacts.selector';
-// import { selectFilterTerm } from 'redux/filter/filter.selector';
+import { selectFilterTerm } from 'redux/filter/filter.selector';
 import { useEffect } from 'react';
 
 export const ContactList = () => {
@@ -17,11 +17,10 @@ export const ContactList = () => {
   const id = useParams();
   // const isLoading = useSelector(selectIsLoading);
   // const error = useSelector(selectError);
-  // const filter = useSelector(selectFilterTerm);
+  const filterTerm = useSelector(selectFilterTerm);
 
   const dispatch = useDispatch();
   const mpDelete = 'https://audio.code.org/goal2.mp3';
-  console.log('contacts : ', contacts);
 
   useEffect(() => {
     dispatch(fetchContacts(id));
@@ -32,17 +31,19 @@ export const ContactList = () => {
     new Audio(mpDelete).play();
   };
 
-  // const visibleContacts = () => {
-  //   const normalizedFilter = filter.toLowerCase();
-  //   return contacts.filter(contact =>
-  //     contact.name.toString().toLowerCase().includes(normalizedFilter)
-  //   );
-  // };
+  const visibleContacts = () => {
+    return contacts.filter(contact =>
+      contact.name
+        .toString()
+        .toLowerCase()
+        .includes(filterTerm.toString().toLowerCase())
+    );
+  };
 
-  // const visContacts = visibleContacts();
-  // const sorted = [...visContacts].sort((a, b) =>
-  //   a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
-  // );
+  const visContacts = visibleContacts();
+  const sorted = [...visContacts].sort((a, b) =>
+    a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+  );
 
   return (
     contacts !== null && (
@@ -50,7 +51,7 @@ export const ContactList = () => {
         <ul className={css.contactList}>
           {Array.isArray(contacts) &&
             contacts.length > 0 &&
-            contacts.map(({ name, number, id }) => (
+            sorted.map(({ name, number, id }) => (
               <ContactElement
                 key={id}
                 name={name}
