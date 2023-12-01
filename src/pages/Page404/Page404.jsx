@@ -1,13 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useRef } from 'react';
-import css from './Page404.module.css';
+
 import error1 from 'images/icons8-no-yelling-100.png';
 import error2 from 'images/icons8-user-groups-100.png';
 
-const Page404 = () => {
+import css from './Page404.module.css';
+
+const Page404Fetch = () => {
   const location = useLocation();
-  const backLinkRef = useRef(location.state?.from ?? '/');
+  const backLinkRef = useRef('/');
   return (
     <div>
       <NavLink
@@ -33,4 +35,4 @@ const Page404 = () => {
     </div>
   );
 };
-export default Page404;
+export default Page404Fetch;

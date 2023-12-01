@@ -19,13 +19,11 @@ const contactsConfig = {
   key: 'contacts',
   storage,
   whitelist: ['contacts'],
-  //   blacklist: ['filter'],
 };
 const authConfig = {
   key: 'auth',
   storage,
   whitelist: ['token'],
-  //   blacklist: ['filter'],
 };
 
 export const store = configureStore({

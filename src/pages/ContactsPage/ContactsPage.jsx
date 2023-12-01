@@ -1,15 +1,13 @@
 import React from 'react';
-
-import Filter from 'components/Filter/Filter';
 import { useSelector } from 'react-redux';
 import { ContactList } from 'components/ContactList/ContactList';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
+import Filter from 'components/Filter/Filter';
 import Loader from 'components/Loader/Loader';
-import css from './ContactsPage.module.css';
 import { useRef } from 'react';
-import Page404 from 'pages/Page404/Page404';
-import { Navigate } from 'react-router-dom';
+
+import css from './ContactsPage.module.css';
 
 const ContactsPage = () => {
   const contacts = useSelector(state => state.contactsStore.contacts);
@@ -17,10 +15,6 @@ const ContactsPage = () => {
   const error = useSelector(state => state.contactsStore.error);
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? '/');
-
-  <Routes>
-    <Route path="/contacts/404" element={<Page404 />} />
-  </Routes>;
 
   return (
     <div className={css.contacts}>

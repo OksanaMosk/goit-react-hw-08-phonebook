@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import css from './Layout.module.css';
-import { NavLink } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
-import { selectAuthenticated } from 'redux/auth/auth selectors';
-import { selectUserData } from 'redux/auth/auth selectors';
+import { useLocation, NavLink } from 'react-router-dom';
+import { selectAuthenticated } from 'redux/auth/auth.selectors';
+import { selectUserData } from 'redux/auth/auth.selectors';
 import { logOutThunk } from 'redux/auth/auth.reducer';
+
+import css from './Layout.module.css';
 
 const Layout = ({ children }) => {
   const userData = useSelector(selectUserData);

@@ -2,15 +2,15 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useRef } from 'react';
-import css from './RegisterPage.module.css';
 import book2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
 import { registerThunk } from 'redux/auth/auth.reducer';
 import Loader from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
 
+import css from './RegisterPage.module.css';
+
 const Register = () => {
   const isLoadingAuth = useSelector(state => state.auth.isLoadingAuth);
-
   const location = useLocation();
   const backLinkRef = useRef('/');
   const dispatch = useDispatch();
@@ -18,7 +18,6 @@ const Register = () => {
     e.preventDefault();
 
     const name = e.currentTarget.elements.userName.value;
-
     const email = e.currentTarget.elements.userEmail.value;
     const password = e.currentTarget.elements.userPassword.value;
 
@@ -31,7 +30,6 @@ const Register = () => {
   };
   return (
     <>
-      {' '}
       <NavLink
         state={{ from: location }}
         className={css.goBack}

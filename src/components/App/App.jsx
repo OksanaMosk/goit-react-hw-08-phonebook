@@ -1,4 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshThunk } from 'redux/auth/auth.reducer';
 import HomePage from 'pages/HomePage/HomePage';
 import ContactsPage from 'pages/ContactsPage/ContactsPage';
 import AddPage from 'pages/AddPage/AddPage';
@@ -6,9 +9,6 @@ import Layout from 'components/Layout/Layout';
 import Page404 from 'pages/Page404/Page404';
 import Login from 'pages/LoginPage/LoginPage';
 import Register from 'pages/RegisterPage/RegisterPage';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { refreshThunk } from 'redux/auth/auth.reducer';
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
 import * as ROUTES from '../constants/routes';
@@ -52,7 +52,12 @@ const appRoutes = [
   },
   {
     path: ROUTES.ERROR_ROUTE,
-    element: <Page404 />,
+
+    element: (
+      <RestrictedRoute>
+        <Page404 />
+      </RestrictedRoute>
+    ),
   },
 ];
 export const App = () => {

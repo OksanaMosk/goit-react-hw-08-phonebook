@@ -1,12 +1,10 @@
-import book2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
-import { useDispatch } from 'react-redux';
-import { loginThunk } from 'redux/auth/auth.reducer';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { loginThunk } from 'redux/auth/auth.reducer';
 import { useRef } from 'react';
+import book2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
 import Loader from 'components/Loader/Loader';
-import { useSelector } from 'react-redux';
-
 import css from './LoginPage.module.css';
 
 const Login = () => {

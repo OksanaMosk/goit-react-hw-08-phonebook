@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { selectAuthenticated } from 'redux/auth/auth selectors';
+import { selectAuthenticated } from 'redux/auth/auth.selectors';
 import { HOME_ROUTE } from 'components/constants/routes';
 
 const RestrictedRoute = ({ children, navigateTo = HOME_ROUTE }) => {

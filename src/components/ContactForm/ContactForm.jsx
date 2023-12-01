@@ -3,19 +3,19 @@ import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { addContacts } from 'redux/contacts/contacts.reducer';
 import { useDispatch, useSelector } from 'react-redux';
-// import { selectContacts } from 'redux/contacts/contacts.selector';
+
 import Notiflix from 'notiflix';
-import css from './ContactForm.module.css';
 import book from 'images/icons8-phonebook-60.png';
 import book2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
 import Loader from 'components/Loader/Loader';
+
+import css from './ContactForm.module.css';
 
 export function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(state => state.contactsStore.contacts);
   const isLoading = useSelector(state => state.contactsStore.isLoading);
-  const error = useSelector(state => state.contactsStore.error);
   const dispatch = useDispatch();
   const mpFailure = 'https://audio.code.org/losepoint1.mp3';
   const mpSuccess = 'https://audio.code.org/goal2.mp3';

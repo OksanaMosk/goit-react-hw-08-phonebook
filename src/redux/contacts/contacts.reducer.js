@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit';
-// import axios from 'axios';
 import { instance } from 'redux/auth/auth.reducer';
 
 export const fetchContacts = createAsyncThunk(
@@ -94,5 +93,4 @@ const contactsSlice = createSlice({
       ),
 });
 
-// export const { addContacts, deleteContacts } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
