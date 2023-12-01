@@ -9,12 +9,12 @@ import Loader from 'components/Loader/Loader';
 import css from './ContactsPage.module.css';
 import { useRef } from 'react';
 import Page404 from 'pages/Page404/Page404';
-// import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const ContactsPage = () => {
   const contacts = useSelector(state => state.contactsStore.contacts);
   const isLoading = useSelector(state => state.contactsStore.isLoading);
-  // const error = useSelector(state => state.contactsStore.error);
+  const error = useSelector(state => state.contactsStore.error);
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? '/');
 
@@ -24,7 +24,7 @@ const ContactsPage = () => {
 
   return (
     <div className={css.contacts}>
-      {/* {error !== null && <Navigate to="/contacts/404" replace={true} />} */}
+      {error !== null && <Navigate to="/contacts/404" replace={true} />}
       <NavLink
         state={{ from: location }}
         className={css.goBack}
@@ -32,11 +32,11 @@ const ContactsPage = () => {
       >
         Go back
       </NavLink>
-      {isLoading && <Loader className={css.loader} />}
-
+      {isLoading && <Loader />}
       {contacts.length !== 0 ? (
         <>
           <Filter />
+
           <ContactList />
         </>
       ) : (

@@ -4,13 +4,14 @@ import { loginThunk } from 'redux/auth/auth.reducer';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useRef } from 'react';
+import Loader from 'components/Loader/Loader';
+import { useSelector } from 'react-redux';
 
 import css from './LoginPage.module.css';
 
-// import photo1 from 'images/icons8-phonebook-96.png';
-// import photo2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
-
 const Login = () => {
+  const error = useSelector(state => state.auth.error);
+  const isLoadingAuth = useSelector(state => state.auth.isLoadingAuth);
   const location = useLocation();
   const dispatch = useDispatch();
   const backLinkRef = useRef('/');
@@ -61,15 +62,22 @@ const Login = () => {
             ></input>
           </label>
           <button type="submit" className={css.submitButton}>
-            <img
-              src={book2}
-              alt="{book2}"
-              className={css.book_2}
-              width={100}
-              height={100}
-            ></img>
+            {isLoadingAuth ? (
+              <Loader />
+            ) : (
+              <img
+                src={book2}
+                alt="{book2}"
+                className={css.book_2}
+                width={100}
+                height={100}
+              ></img>
+            )}
           </button>
         </form>
+        {error !== null && (
+          <span className={css.submitError}>Something went wrong...</span>
+        )}
       </div>
     </>
   );

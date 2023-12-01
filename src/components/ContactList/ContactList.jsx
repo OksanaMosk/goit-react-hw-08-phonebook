@@ -2,12 +2,13 @@ import { ContactElement } from '../ContactElement/ContactElement';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContacts, fetchContacts } from 'redux/contacts/contacts.reducer';
 import { useParams } from 'react-router-dom';
+import Loader from 'components/Loader/Loader';
 
 import css from './ContactList.module.css';
 import {
   selectContacts,
-  // selectIsLoading,
-  // selectError,
+  selectIsLoading,
+  selectError,
 } from 'redux/contacts/contacts.selector';
 import { selectFilterTerm } from 'redux/filter/filter.selector';
 import { useEffect } from 'react';
@@ -15,8 +16,8 @@ import { useEffect } from 'react';
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const id = useParams();
-  // const isLoading = useSelector(selectIsLoading);
-  // const error = useSelector(selectError);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
   const filterTerm = useSelector(selectFilterTerm);
 
   const dispatch = useDispatch();

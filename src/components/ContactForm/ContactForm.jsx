@@ -8,11 +8,14 @@ import Notiflix from 'notiflix';
 import css from './ContactForm.module.css';
 import book from 'images/icons8-phonebook-60.png';
 import book2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
+import Loader from 'components/Loader/Loader';
 
 export function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(state => state.contactsStore.contacts);
+  const isLoading = useSelector(state => state.contactsStore.isLoading);
+  const error = useSelector(state => state.contactsStore.error);
   const dispatch = useDispatch();
   const mpFailure = 'https://audio.code.org/losepoint1.mp3';
   const mpSuccess = 'https://audio.code.org/goal2.mp3';
@@ -129,13 +132,17 @@ export function ContactForm() {
           ></input>
         </label>
         <button type="submit" className={css.submitButton}>
-          <img
-            src={book2}
-            alt="{book2}"
-            className={css.book_2}
-            width={100}
-            height={100}
-          ></img>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <img
+              src={book2}
+              alt="{book2}"
+              className={css.book_2}
+              width={100}
+              height={100}
+            ></img>
+          )}
         </button>
         <img
           src={book}

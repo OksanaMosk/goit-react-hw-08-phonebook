@@ -1,11 +1,11 @@
 import React from 'react';
 import { ThreeCircles } from 'react-loader-spinner';
 
-const Loader = () => {
+const LoaderSmall = () => {
   return (
     <ThreeCircles
-      height="70"
-      width="70"
+      height="35"
+      width="35"
       color="#5a6679"
       wrapperStyle={{}}
       wrapperClass=""
@@ -17,4 +17,4 @@ const Loader = () => {
     />
   );
 };
-export default Loader;
+export default LoaderSmall;

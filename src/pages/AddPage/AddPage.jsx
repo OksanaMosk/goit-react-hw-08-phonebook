@@ -21,8 +21,7 @@ const AddPage = () => {
       </NavLink>
       <div className={css.container}>
         <div>
-          {isLoading && <Loader />} <ContactForm />
-          {error !== null && <>{error}</>}
+          <ContactForm />
         </div>
       </div>
     </>

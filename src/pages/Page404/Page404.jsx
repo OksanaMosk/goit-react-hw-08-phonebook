@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useRef } from 'react';
 import css from './Page404.module.css';
-import error1 from 'images/imagesError1.jpg';
-import error2 from 'images/imageError2.jpg';
+import error1 from 'images/icons8-no-yelling-100.png';
+import error2 from 'images/icons8-user-groups-100.png';
 
 const Page404 = () => {
   const location = useLocation();
@@ -22,12 +22,12 @@ const Page404 = () => {
         <div className={css.errorSection}>
           <h3 className={css.errorTitle}>The bad news</h3>
           <p className={css.error}>Your contacts are lost somewhere...</p>
-          <img src={error1} alt="{svgDelete}" width={300} height={200}></img>
+          <img src={error1} alt="{svgDelete}" width={200} height={200}></img>
         </div>
         <div className={css.errorSection}>
           <h3 className={css.errorTitle}>The good news</h3>
           <p className={css.error}> They will definitely come back!</p>
-          <img src={error2} alt="{error2}" width={300} height={200}></img>{' '}
+          <img src={error2} alt="{error2}" width={200} height={200}></img>
         </div>
       </div>
     </div>

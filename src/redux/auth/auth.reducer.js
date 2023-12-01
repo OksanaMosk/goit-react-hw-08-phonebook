@@ -19,7 +19,7 @@ export const loginThunk = createAsyncThunk(
 
       return data;
     } catch (err) {
-      return thunkApi.rejectWithValue(err.message);
+      return thunkApi.rejectWithValue(err.status(400));
     }
   }
 );
@@ -80,7 +80,7 @@ export const logOutThunk = createAsyncThunk(
 );
 
 const initialState = {
-  isLoading: false,
+  isLoadingAuth: false,
   error: null,
   authenticated: false,
   token: null,
@@ -97,24 +97,24 @@ const authSlice = createSlice({
         state.authenticated = true;
         state.token = payload.token;
         state.userData = payload.user;
-        state.isLoading = false;
+        state.isLoadingAuth = false;
         state.error = null;
       })
       .addCase(registerThunk.fulfilled, (state, { payload }) => {
         state.authenticated = true;
         state.token = payload.token;
         state.userData = payload.user;
-        state.isLoading = false;
+        state.isLoadingAuth = false;
         state.error = null;
       })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
         state.authenticated = true;
         state.userData = payload;
-        state.isLoading = false;
+        state.isLoadingAuth = false;
         state.error = null;
       })
       .addCase(logOutThunk.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
+        state.isLoadingAuth = false;
         state.error = null;
         state.authenticated = false;
         state.token = null;
@@ -128,7 +128,7 @@ const authSlice = createSlice({
           logOutThunk.pending
         ),
         state => {
-          state.isLoading = true;
+          state.isLoadingAuth = true;
           state.error = null;
         }
       )
@@ -141,7 +141,7 @@ const authSlice = createSlice({
           logOutThunk.rejected
         ),
         (state, { payload }) => {
-          state.isLoading = false;
+          state.isLoadingAuth = false;
           state.error = payload;
         }
       ),

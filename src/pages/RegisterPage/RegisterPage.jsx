@@ -5,8 +5,12 @@ import { useRef } from 'react';
 import css from './RegisterPage.module.css';
 import book2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
 import { registerThunk } from 'redux/auth/auth.reducer';
+import Loader from 'components/Loader/Loader';
+import { useSelector } from 'react-redux';
 
 const Register = () => {
+  const isLoadingAuth = useSelector(state => state.auth.isLoadingAuth);
+
   const location = useLocation();
   const backLinkRef = useRef('/');
   const dispatch = useDispatch();
@@ -17,9 +21,7 @@ const Register = () => {
 
     const email = e.currentTarget.elements.userEmail.value;
     const password = e.currentTarget.elements.userPassword.value;
-    // console.log('name: ', name);
-    // console.log('email: ', email);
-    // console.log('password: ', password);
+
     const formData = {
       name,
       email,
@@ -71,13 +73,17 @@ const Register = () => {
             ></input>
           </label>
           <button type="submit" className={css.submitButton}>
-            <img
-              src={book2}
-              alt="{book2}"
-              className={css.book_2}
-              width={100}
-              height={100}
-            ></img>
+            {isLoadingAuth ? (
+              <Loader />
+            ) : (
+              <img
+                src={book2}
+                alt="{book2}"
+                className={css.book_2}
+                width={100}
+                height={100}
+              ></img>
+            )}
           </button>
         </form>
       </div>
