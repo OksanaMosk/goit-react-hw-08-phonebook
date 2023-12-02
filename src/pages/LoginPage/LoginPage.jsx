@@ -3,12 +3,13 @@ import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { loginThunk } from 'redux/auth/auth.reducer';
 import { useRef } from 'react';
+
+import Notiflix from 'notiflix';
 import book2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
 import Loader from 'components/Loader/Loader';
 import css from './LoginPage.module.css';
 
 const Login = () => {
-  const error = useSelector(state => state.auth.error);
   const isLoadingAuth = useSelector(state => state.auth.isLoadingAuth);
   const location = useLocation();
   const dispatch = useDispatch();
@@ -16,15 +17,25 @@ const Login = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-
-    const email = e.currentTarget.elements.userEmail.value;
-    const password = e.currentTarget.elements.userPassword.value;
+    const form = e.currentTarget;
 
     const formData = {
-      email,
-      password,
+      email: form.elements.userEmail.value,
+      password: form.elements.userPassword.value,
     };
-    dispatch(loginThunk(formData));
+
+    dispatch(loginThunk(formData))
+      .unwrap()
+      .then(newUser => {
+        Notiflix.Notify.success(` Welcome ${newUser.user.name} !`);
+      })
+      .catch(() => {
+        Notiflix.Notify.failure(
+          'Something went wrong...Incorrect login or password'
+        );
+      });
+
+    form.reset();
   };
 
   return (
@@ -73,9 +84,6 @@ const Login = () => {
             )}
           </button>
         </form>
-        {error !== null && (
-          <span className={css.submitError}>Something went wrong...</span>
-        )}
       </div>
     </>
   );

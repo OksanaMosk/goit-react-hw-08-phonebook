@@ -16,7 +16,11 @@ import * as ROUTES from '../constants/routes';
 const appRoutes = [
   {
     path: ROUTES.HOME_ROUTE,
-    element: <HomePage />,
+    element: (
+      <RestrictedRoute>
+        <HomePage />
+      </RestrictedRoute>
+    ),
   },
   {
     path: ROUTES.ADD_ROUTE,
@@ -69,6 +73,8 @@ export const App = () => {
   return (
     <Layout>
       <Routes>
+        <Route path="*" element={<HomePage />} />
+
         {appRoutes.map(({ path, element }) => (
           <Route key={path} path={path} element={element} />
         ))}
@@ -76,10 +82,3 @@ export const App = () => {
     </Layout>
   );
 };
-
-//  <Route path="/" element={<HomePage />} />
-//         <Route path="/add" element={<AddPage />} />
-//         <Route path="/contacts" element={<ContactsPage />} />
-//         <Route path="/register" element={<Register />} />
-//         <Route path="/login" element={<Login />} />
-//         <Route path="/contacts/404" element={<Page404 />} />

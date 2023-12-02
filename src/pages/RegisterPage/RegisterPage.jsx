@@ -6,6 +6,7 @@ import book2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
 import { registerThunk } from 'redux/auth/auth.reducer';
 import Loader from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
+import Notiflix from 'notiflix';
 
 import css from './RegisterPage.module.css';
 
@@ -16,18 +17,26 @@ const Register = () => {
   const dispatch = useDispatch();
   const onSubmit = e => {
     e.preventDefault();
-
-    const name = e.currentTarget.elements.userName.value;
-    const email = e.currentTarget.elements.userEmail.value;
-    const password = e.currentTarget.elements.userPassword.value;
+    const form = e.currentTarget;
 
     const formData = {
-      name,
-      email,
-      password,
+      name: form.elements.userName.value,
+      email: form.elements.userEmail.value,
+      password: form.elements.userPassword.value,
     };
-    dispatch(registerThunk(formData));
+    dispatch(registerThunk(formData))
+      .unwrap()
+      .then(newRegister => {
+        Notiflix.Notify.success(` Welcome ${newRegister.user.name} !`);
+      })
+      .catch(() => {
+        Notiflix.Notify.failure(
+          'Something went wrong... Maybe the user be registered'
+        );
+      });
+    form.reset();
   };
+
   return (
     <>
       <NavLink

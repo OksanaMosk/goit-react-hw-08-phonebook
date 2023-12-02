@@ -5,7 +5,7 @@ import { HOME_ROUTE } from 'components/constants/routes';
 
 const RestrictedRoute = ({ children, navigateTo = HOME_ROUTE }) => {
   const authenticated = useSelector(selectAuthenticated);
-  return authenticated ? <Navigate to={navigateTo} replace /> : children;
+  return authenticated ? <Navigate to={navigateTo} replace={true} /> : children;
 };
 
 export default RestrictedRoute;
