@@ -11,6 +11,7 @@ import Login from 'pages/LoginPage/LoginPage';
 import Register from 'pages/RegisterPage/RegisterPage';
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import * as ROUTES from '../constants/routes';
 import { selectAuthenticated } from 'redux/auth/auth.selectors';
 
@@ -64,6 +65,15 @@ const appRoutes = [
       </RestrictedRoute>
     ),
   },
+  {
+    path: ROUTES.NOTFOUNDPPAGE_ROUTE,
+
+    element: (
+      <RestrictedRoute>
+        <NotFoundPage />
+      </RestrictedRoute>
+    ),
+  },
 ];
 export const App = () => {
   const authenticated = useSelector(selectAuthenticated);
@@ -75,8 +85,7 @@ export const App = () => {
   return (
     <Layout>
       <Routes>
-        <Route path="*" element={<HomePage />} />
-
+        <Route path="*" element={<NotFoundPage />} />
         {appRoutes.map(({ path, element }) => (
           <Route key={path} path={path} element={element} />
         ))}
