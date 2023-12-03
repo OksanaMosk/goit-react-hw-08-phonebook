@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshThunk } from 'redux/auth/auth.reducer';
 import HomePage from 'pages/HomePage/HomePage';
@@ -12,6 +12,7 @@ import Register from 'pages/RegisterPage/RegisterPage';
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
 import * as ROUTES from '../constants/routes';
+import { selectAuthenticated } from 'redux/auth/auth.selectors';
 
 const appRoutes = [
   {
@@ -65,10 +66,11 @@ const appRoutes = [
   },
 ];
 export const App = () => {
+  const authenticated = useSelector(selectAuthenticated);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(refreshThunk);
-  }, [dispatch]);
+    dispatch(refreshThunk(authenticated));
+  }, [authenticated, dispatch]);
 
   return (
     <Layout>
