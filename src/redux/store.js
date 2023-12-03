@@ -31,7 +31,6 @@ export const store = configureStore({
     contactsStore: persistReducer(contactsConfig, contactsReducer),
     filterStore: filterReducer,
     auth: persistReducer(authConfig, authReducer),
-    phonebook: contactsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
