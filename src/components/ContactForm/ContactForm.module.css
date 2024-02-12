@@ -21,6 +21,7 @@
   row-gap: 10px;
   padding-bottom: 50px;
   padding-left: 30px;
+  font-size: clamp(16px, 4vw, 20px);
 }
 .contactForm:focus,
 .contactForm:hover {
@@ -29,7 +30,6 @@
 .inputName {
   color: #e6eaed;
   padding-left: 10px;
-  font-size: 20px;
 }
 
 .inputName:hover,
@@ -41,13 +41,16 @@
   margin-right: 40px;
   background-color: #cec5bc;
   color: #9a8f89;
-  font-size: 20px;
-  width: 230px;
+  max-width: 30vw;
   height: 20px;
   cursor: pointer;
   border: none;
   border-radius: 10px;
   outline: none;
+  padding-inline-end: 0;
+  padding-block-start: 0;
+  display: flex;
+  justify-content: center;
 }
 .formInput:hover,
 .formInput:focus {
@@ -58,8 +61,12 @@
 
 .formInput::placeholder {
   color: #9a8f89;
-  font-size: 20px;
+  font-size: clamp(10px, 2vw, 18px);
   border: none;
+  padding-inline-end: 0;
+  padding-block-start: 0;
+  display: flex;
+  justify-content: center;
 }
 .formInput::placeholder::-moz-placeholder {
   color: #9a8f89;
@@ -72,8 +79,7 @@
 }
 .submitButton {
   position: absolute;
-  bottom: -70px;
-  left: 31.5vw;
+  bottom: -50px;
   display: flex;
   font-size: 20px;
   background-color: #9a8f89;
@@ -82,18 +88,16 @@
   border: 1px solid #9a8f89;
   border-radius: 20px;
   cursor: pointer;
-  margin-top: 50px;
-  margin-bottom: 20px;
+  left: calc(50% - 50px);
   text-transform: inherit;
 }
 .book {
   position: absolute;
-  top: -70px;
-  left: 31.5vw;
+  top: -50px;
+  left: calc(50% - 50px);
   z-index: 1;
 }
 .book_2 {
   position: absolute;
   z-index: 1;
 }
-

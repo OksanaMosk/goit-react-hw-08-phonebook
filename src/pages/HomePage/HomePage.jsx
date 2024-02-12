@@ -23,14 +23,14 @@ const HomePage = () => {
             state={{ from: location }}
             to="/add"
           >
-            <img src={photo2} alt="{photo}" width={140} height={170}></img>
+            <img src={photo2} alt="{photo}" width={110} height={170}></img>
           </NavLink>
           <NavLink
             className={css.homePage2}
             state={{ from: location }}
             to="/contacts"
           >
-            <img src={photo1} alt="{photo}" width={170} height={170}></img>
+            <img src={photo1} alt="{photo}" width={140} height={170}></img>
           </NavLink>
         </>
       )}

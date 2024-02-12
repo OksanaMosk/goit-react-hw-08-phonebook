@@ -87,7 +87,7 @@ const Register = () => {
                 src={book2}
                 alt="{book2}"
                 className={css.book_2}
-                width={100}
+                width={75}
                 height={100}
               ></img>
             )}

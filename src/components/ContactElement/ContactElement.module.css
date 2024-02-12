@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   text-transform: lowercase;
-  font-size: 20px;
   background-color: #cec5bc;
   width: 40px;
   height: 40px;
@@ -22,8 +21,9 @@
 .everyItem {
   display: flex;
   flex-wrap: nowrap;
-  gap: 30px;
+  gap: 15px;
   justify-content: space-between;
+  font-size: clamp(10px, 2vw, 20px);
 }
 .everyItem > p {
   float: left;

@@ -34,10 +34,11 @@ const ContactsPage = () => {
           <ContactList />
         </>
       ) : (
-        <p className={css.noContacts}>
-          Your phonebook is empty. Add your first contact!
+        <>
+          <p className={css.noContacts}>Your phonebook is empty.</p>
+          <p className={css.noContacts}> Add your first contact!</p>
           <img src={error1} alt="{svgDelete}" width={200} height={200}></img>
-        </p>
+        </>
       )}
     </div>
   );

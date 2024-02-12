@@ -2,7 +2,7 @@
   width: 46vw;
   height: 350px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   padding: 20px;
   background-color: #af9e8e;
@@ -35,6 +35,9 @@
   flex-wrap: wrap;
   flex-direction: column;
   gap: 25px;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(16px, 4vw, 20px);
 }
 .contactForm:focus,
 .contactForm:hover {
@@ -45,7 +48,6 @@
   margin-inline-end: 0px;
   color: #6e6662;
   font-weight: 500;
-  font-size: 20px;
 }
 
 .inputName:hover,
@@ -55,7 +57,7 @@
 .formInput {
   background-color: #cec5bc;
   color: #9a8f89;
-  font-size: 20px;
+
   width: 170px;
   height: 20px;
   cursor: pointer;
@@ -72,7 +74,7 @@
 .formInput::placeholder {
   padding-left: 10px;
   color: #9a8f89;
-  font-size: 20px;
+  font-size: clamp(10px, 2vw, 18px);
   border: none;
 }
 
@@ -84,7 +86,6 @@
 .submitButton {
   position: absolute;
   bottom: -70px;
-  left: 20.5vw;
   display: flex;
   font-size: 20px;
   background-color: #cec5bc;
@@ -96,6 +97,7 @@
   margin-top: 50px;
   margin-bottom: 20px;
   text-transform: inherit;
+  justify-content: center;
 }
 
 .goBack {
@@ -107,13 +109,13 @@
   border: 1px solid #e6eaed;
   border-radius: 0 15px 15px 0;
   width: 70px;
-  height: 20px;
+  height: 15px;
   margin-block-end: 0;
   margin-block-start: 0;
   justify-content: center;
   align-items: center;
   color: #e6eaed;
-  font-size: 14px;
+  font-size: 12px;
   transition: all 0.003s;
   background-color: #af9e8e;
 }

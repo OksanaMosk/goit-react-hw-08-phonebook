@@ -8,15 +8,15 @@
 }
 
 .noContacts {
-  padding-top: 20px;
   color: #6e6662;
-  font-size: 36px;
+  font-size: clamp(24px, 4vw, 36px);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  margin-block-end: 0;
+  margin-block-start: 0;
 }
 
 .noContacts:hover,
@@ -33,13 +33,13 @@
   border: 1px solid #e6eaed;
   border-radius: 0 15px 15px 0;
   width: 70px;
-  height: 20px;
+  height: 15px;
   margin-block-end: 0;
   margin-block-start: 0;
   justify-content: center;
   align-items: center;
   color: #e6eaed;
-  font-size: 14px;
+  font-size: 12px;
   transition: all 0.003s;
   background-color: #af9e8e;
 }
