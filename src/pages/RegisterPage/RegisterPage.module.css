@@ -57,7 +57,7 @@
 .formInput {
   background-color: #cec5bc;
   color: #9a8f89;
-
+  padding-left: 10px;
   width: 170px;
   height: 20px;
   cursor: pointer;

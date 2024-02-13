@@ -35,6 +35,7 @@
   flex-wrap: wrap;
   flex-direction: column;
   gap: 25px;
+  font-size: clamp(16px, 4vw, 20px);
 }
 .contactForm:focus,
 .contactForm:hover {
@@ -45,7 +46,6 @@
   font-weight: 500;
   margin-block-start: 0px;
   margin-inline-end: 0px;
-  font-size: 20px;
 }
 
 .inputName:hover,
@@ -53,14 +53,17 @@
   color: #b1b9cc;
 }
 .formInput {
+  display: flex;
   background-color: #cec5bc;
   color: #9a8f89;
-  font-size: 20px;
   width: 170px;
   height: 20px;
   cursor: pointer;
   border: none;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  padding-left: 10px;
 }
 .formInput:hover,
 .formInput:focus {
@@ -72,8 +75,10 @@
 .formInput::placeholder {
   padding-left: 10px;
   color: #9a8f89;
-  font-size: 20px;
+  font-size: clamp(10px, 2vw, 18px);
   border: none;
+  display: flex;
+  justify-content: center;
 }
 
 .submitButton:hover,
@@ -84,9 +89,9 @@
 .submitButton {
   position: absolute;
   bottom: -70px;
-  left: 21vw;
+  left: calc(50% - 50px);
   display: flex;
-  font-size: 20px;
+
   background-color: #cec5bc;
   width: 90px;
   height: 110px;
@@ -135,7 +140,7 @@
   justify-content: space-between;
   gap: 30px;
 }
-.homePage1,
+/* .homePage1,
 .homePage2 {
   width: 32vw;
   height: 250px;
@@ -161,13 +166,13 @@
   -o-transition: margin 2s;
   -webkit-transition: margin 2s;
   transition: margin 2s;
-}
+} */
 
-.homePage1:focus,
+/* .homePage1:focus,
 .homePage1:hover,
 .homePage2:focus,
 .homePage2:hover {
   margin-top: 20px;
-}
+} */
 
 /* https://color.romanuke.com/tsvetovaya-palitra-27/ */
